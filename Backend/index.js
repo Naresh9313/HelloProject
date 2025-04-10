@@ -8,7 +8,7 @@ const Routes = require("./routes/routes");
 const path = require("path");
 
 const app = express(); 
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('uploads')); 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose
