@@ -9,7 +9,7 @@ const userCount = async (req, res) => {
       res.status(500).json({ message: "Failed to get total users" });
     }
   };
- 
+  
   const getAllUsers = async (req, res) => {
     try {
       const users = await User.find().select("-password"); // Exclude passwords
