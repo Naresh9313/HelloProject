@@ -1,0 +1,100 @@
+/* profile.css */
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.profile-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.profile-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  margin-top: 1rem;
+  color: #34495e;
+}
+
+.profile-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.profile-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.8rem;
+  gap: 10px;
+}
+
+.button {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button.edit {
+  background-color: #f39c12;
+  color: white;
+}
+
+.button.edit:hover {
+  background-color: #e67e22;
+}
+
+.button.update {
+  background-color: #27ae60;
+  color: white;
+}
+
+.button.update:hover {
+  background-color: #1e8449;
+}
+
+.button.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.button.delete:hover {
+  background-color: #c0392b;
+}
+
+.no-user-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}

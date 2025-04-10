@@ -1,0 +1,100 @@
+/* BookingMessageMail.css */
+.booking-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafb;
+  }
+  
+  .booking-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 40rem;
+    width: 100%;
+  }
+  
+  .booking-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #16a34a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .booking-details {
+    margin-bottom: 1rem;
+    color: #4b5563;
+  }
+  
+  .booking-details p {
+    margin: 0.5rem 0;
+  }
+  
+  .booking-divider {
+    margin: 1.5rem 0;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .booking-trip {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .booking-trip img {
+    width: 12rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .booking-trip-info {
+    flex: 1;
+  }
+  
+  .booking-trip-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .booking-trip-description {
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
+  
+  .booking-trip-price {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #2563eb;
+    margin-top: 1rem;
+  }
+
+  .booking-download-btn {
+    margin: 20px auto 0;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0f172a; /* optional - Tailwind bg-blue-gray-900 equivalent */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-download-btn:hover {
+    background-color: #1e293b; /* slightly lighter for hover */
+  }
+  .booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  
