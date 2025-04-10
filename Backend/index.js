@@ -12,7 +12,7 @@ app.use('/uploads', express.static('uploads'));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose
-  .connect("mongodb://localhost:27017/otp ", {
+  .connect("mongodb://localhost:27017/otp ", { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
