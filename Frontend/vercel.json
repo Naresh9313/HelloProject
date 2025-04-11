@@ -1,9 +1,22 @@
 {
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
     "routes": [
-        {
-            "src": "/[^.]+",
-            "dest": "/",
-            "status": 200
+      {
+        "src": "/(.*)",
+        "dest": "/index.js",
+        "headers": {
+          "Access-Control-Allow-Origin": "https://hello-project-nine.vercel.app",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Credentials": "true"
         }
+      }
     ]
-}
+  }
+  

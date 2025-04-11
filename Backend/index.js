@@ -60,64 +60,132 @@
 
 
 
-const express = require("express");
-require("dotenv").config();
-const mongoose = require("mongoose");
-const cors = require("cors");
-const Routes = require("./routes/routes");
-const path = require("path");
-const bodyParser = require("body-parser");
+// const express = require("express");
+// require("dotenv").config();
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const Routes = require("./routes/routes");
+// const path = require("path");
+// const bodyParser = require("body-parser");
 
-const app = express();
+// const app = express();
+
+// // Static files
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// // MongoDB
+// mongoose
+//   .connect("mongodb://localhost:27017/otp", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("✅ MongoDB Connected"))
+//   .catch((error) => console.error("❌ MongoDB Connection Error:", error));
+
+// // CORS Setup
+// // app.use(cors({
+// //   origin: [
+// //     'http://localhost:5173',
+// //     'https://hello-project-nine.vercel.app'
+// //   ],
+// //   credentials: true,
+// //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// //   allowedHeaders: ['Content-Type', 'Authorization'],
+// // }));
+
+
+
+
+
+// app.use(cors({
+//   origin: ['http://localhost:5173','https://hello-project-nine.vercel.app'], // Allow only your frontend domain
+//   credentials: true, // Allow cookies if needed
+//   methods: 'GET,POST,PUT,DELETE,OPTIONS',
+//   allowedHeaders: 'Content-Type,Authorization',
+// }));
+
+// // JSON Parsing
+// app.use(express.json());
+// app.use(bodyParser.json());
+// // Routes
+// app.use("/", Routes);
+
+// // Error handler
+// app.use((err, req, res, next) => {
+//   console.error("❌ Server Error:", err);
+//   res.status(500).json({ message: "Internal Server Error" });
+// });
+
+// // Server
+// const port = process.env.SERVER_PORT || 5000;
+// app.listen(port, () => {
+//   console.log(`🚀 Server running on http://localhost:${port}`);
+// });
+
+
+const express = require("express")
+require("dotenv").config()
+const mongoose = require("mongoose")
+const cors = require("cors")
+const Routes = require("./routes/routes")
+const path = require("path")
+const bodyParser = require("body-parser")
+
+const app = express()
+
+// IMPORTANT: CORS middleware must be before any route definitions
+// This ensures OPTIONS requests are handled properly
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://hello-project-nine.vercel.app"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204, // Some legacy browsers choke on 204
+  }),
+)
+
+// Handle preflight requests explicitly
+app.options(
+  "*",
+  cors({
+    origin: ["http://localhost:5173", "https://hello-project-nine.vercel.app"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+)
 
 // Static files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+
+// JSON Parsing - these should come after CORS but before routes
+app.use(express.json())
+app.use(bodyParser.json())
 
 // MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/otp", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/otp", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => console.log("✅ MongoDB Connected"))
-  .catch((error) => console.error("❌ MongoDB Connection Error:", error));
+  .catch((error) => console.error("❌ MongoDB Connection Error:", error))
 
-// CORS Setup
-// app.use(cors({
-//   origin: [
-//     'http://localhost:5173',
-//     'https://hello-project-nine.vercel.app'
-//   ],
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-// }));
-
-
-
-
-
-app.use(cors({
-  origin: ['http://localhost:5173','https://hello-project-nine.vercel.app'], // Allow only your frontend domain
-  credentials: true, // Allow cookies if needed
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Content-Type,Authorization',
-}));
-
-// JSON Parsing
-app.use(express.json());
-app.use(bodyParser.json());
 // Routes
-app.use("/", Routes);
+app.use("/", Routes)
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error("❌ Server Error:", err);
-  res.status(500).json({ message: "Internal Server Error" });
-});
+  console.error("❌ Server Error:", err)
+  res.status(500).json({ message: "Internal Server Error" })
+})
 
 // Server
-const port = process.env.SERVER_PORT || 5000;
+const port = process.env.PORT || process.env.SERVER_PORT || 5000
 app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
-});
+  console.log(`🚀 Server running on http://localhost:${port}`)
+})
+
+// For Vercel serverless functions
+module.exports = app
