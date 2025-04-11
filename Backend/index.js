@@ -19,10 +19,24 @@ mongoose
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((error) => console.error("❌ MongoDB Connection Error:", error));
 
-app.use(cors({ origin: ['http://localhost:5173','https://hello-project-nine.vercel.app'], credentials: true ,
-  methods:'GET, POST, PUT, DELETE',
-  allowedHeaders:'content-Type,Authorization',
-})); 
+// app.use(cors({ origin: ['http://localhost:5173','https://hello-project-nine.vercel.app'], credentials: true ,
+//   methods:'GET, POST, PUT, DELETE',
+//   allowedHeaders:'content-Type,Authorization',
+// })); 
+
+const cors = require('cors');
+
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://hello-project-nine.vercel.app' 
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+
 app.use(bodyParser.json());
 app.use(express.json());
 
@@ -44,3 +58,4 @@ const port = process.env.SERVER_PORT || 5000 ;
 app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`);
 });
+app.use(cors({ origin: '*' }));
