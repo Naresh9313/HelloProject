@@ -1,6 +1,5 @@
 import './App.css'
 import Homepage from './pages/User/homepage/homepage';
-import Register from "./pages/User/Register/register"; 
 import Otp from "./pages/User/otp/otp";
 import Login from "./pages/User/Login/Login"
 import Logout from "./pages/User/Logout/logout"
@@ -18,14 +17,16 @@ import AddPassengerDetails from './pages/User/addPassengerDetails/addPassengerDe
 import BillingPage from './pages/User/billingDetails/BillingPage';
 import PaymentPage from './pages/User/paymentGateway.jsx/PaymentPage';
 import BookingMessageMail from './pages/User/bookingMessageMail/bookingMessageMail';
+import Register from './pages/User/Register/register';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/register" element={<Register />} />
+      
       <Route path="/otp" element={<Otp />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/AdminLogin" element={<AdminLogin/>}/>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../Login/login.css"; // Ensure this file exists
+import "./login.css"; // Ensure this file exists
 
 const Login = () => {
   const [formData, setFormData] = useState({
