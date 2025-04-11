@@ -24,7 +24,6 @@ mongoose
 //   allowedHeaders:'content-Type,Authorization',
 // })); 
 
-const cors = require('cors');
 
 app.use(cors({
   origin: [
