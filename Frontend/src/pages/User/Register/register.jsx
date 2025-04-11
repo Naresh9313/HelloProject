@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import axios from "axios";
 import "./register.css";
+const VITE_URL =  import.meta.env.VITE_URL;
 
 
 const Register = () => {
@@ -26,7 +27,7 @@ const Register = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:5000/user/register", formData);
+      const response = await axios.post(`${VITE_URL}/user/register`, formData);
       navigate(`/otp?phoneNumber=${encodeURIComponent(formData.phoneNumber)}`);
       
     } catch (error) {
