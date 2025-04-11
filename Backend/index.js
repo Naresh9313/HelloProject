@@ -20,7 +20,7 @@ mongoose
   .catch((error) => console.error("❌ MongoDB Connection Error:", error));
 
   app.use(cors({
-    origin: ['http://localhost:5173', 'https://hello-project-git-main-nareshs-projects-6e7b16cf.vercel.app'],
+    origin: ['http://localhost:5173', 'https://hello-project-nine.vercel.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
