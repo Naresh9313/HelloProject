@@ -83,14 +83,22 @@ mongoose
   .catch((error) => console.error("❌ MongoDB Connection Error:", error));
 
 // CORS Setup
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173',
+//     'https://hello-project-nine.vercel.app'
+//   ],
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
+
+
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://hello-project-nine.vercel.app'
-  ],
-  credentials: true,
+  origin:  ['http://localhost:5173','https://hello-project-nine.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+   allowedHeaders:'content-Type,Authorization',
 }));
 
 // JSON Parsing
