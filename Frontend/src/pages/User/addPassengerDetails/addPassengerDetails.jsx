@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import "./addPassengerDetails.css";
+import "./addPassengerDetails.css";
 
 export default function AddPassengerDetails() {
   const navigate = useNavigate();
