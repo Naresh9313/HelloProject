@@ -94,11 +94,14 @@ mongoose
 // }));
 
 
+
+
+
 app.use(cors({
-  origin:  ['http://localhost:5173','https://hello-project-nine.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-   allowedHeaders:'content-Type,Authorization',
+  origin: ['http://localhost:5173','https://hello-project-nine.vercel.app'], // Allow only your frontend domain
+  credentials: true, // Allow cookies if needed
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization',
 }));
 
 // JSON Parsing
