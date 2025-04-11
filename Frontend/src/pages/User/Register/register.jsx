@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import axios from "axios";
 import "./register.css";
-const VITE_URL =  import.meta.env.VITE_URL;
+// const VITE_URL =  import.meta.env.VITE_URL;
 
+const VITE_URL = import.meta.env.VITE_URL;
 
 const Register = () => {
   const [formData, setFormData] = useState({

@@ -66,6 +66,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const Routes = require("./routes/routes");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -94,7 +95,7 @@ app.use(cors({
 
 // JSON Parsing
 app.use(express.json());
-
+app.use(bodyParser.json());
 // Routes
 app.use("/", Routes);
 
